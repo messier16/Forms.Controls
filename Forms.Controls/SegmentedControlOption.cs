@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace Messier16.Forms.Controls
 {
@@ -14,8 +9,8 @@ namespace Messier16.Forms.Controls
 
         public string Text
         {
-            get { return (string)GetValue(TextProperty); }
-            set { SetValue(TextProperty, value); }
+            get => (string) GetValue(TextProperty);
+            set => SetValue(TextProperty, value);
         }
     }
 }

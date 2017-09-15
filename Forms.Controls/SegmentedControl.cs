@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace Messier16.Forms.Controls
 {
-
     public class SegmentedControl : View, IViewContainer<SegmentedControlOption>
     {
+        public static readonly BindableProperty SelectedIndexProperty =
+            BindableProperty.Create(nameof(SelectedIndex), typeof(int), typeof(SegmentedControl), 0);
+
         public SegmentedControl()
         {
             Children = new List<SegmentedControlOption>();
         }
-
-
-        public static readonly BindableProperty SelectedIndexProperty =
-            BindableProperty.Create(nameof(SelectedIndex), typeof(int), typeof(SegmentedControl), 0);
 
         //        public static readonly BindableProperty SelectedTextProperty =
         //            BindableProperty.Create(nameof(SelectedText), typeof (string), typeof (SegmentedControl), 
@@ -25,7 +19,7 @@ namespace Messier16.Forms.Controls
 
         public int SelectedIndex
         {
-            get { return (int)GetValue(SelectedIndexProperty); }
+            get => (int) GetValue(SelectedIndexProperty);
             set
             {
                 SetValue(SelectedIndexProperty, value);
@@ -33,18 +27,9 @@ namespace Messier16.Forms.Controls
             }
         }
 
-        public string SelectedText
-        {
-            get { return this.Children[SelectedIndex].Text; }
-        }
+        public string SelectedText => Children[SelectedIndex].Text;
 
-        public SegmentedControlOption this[int index]
-        {
-            get
-            {
-                return Children[index];
-            }
-        }
+        public SegmentedControlOption this[int index] => Children[index];
 
         #region IViewContainer implementation
 
