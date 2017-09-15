@@ -6,4 +6,8 @@
     <RootNamespace>Messier16.Forms.Controls</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="2.3.4.270" />
+  </ItemGroup>
+
 </Project>
