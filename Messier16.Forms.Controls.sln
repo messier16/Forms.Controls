@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forms.Controls", "Forms.Controls\Forms.Controls.csproj", "{C609376A-8ACD-4651-B6B7-95F4630F671F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Forms.Controls", "Forms.Controls\Forms.Controls.csproj", "{C609376A-8ACD-4651-B6B7-95F4630F671F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forms.Controls.Android", "Forms.Controls.Android\Forms.Controls.Android.csproj", "{8231D850-4341-4EE5-8189-2FFE94C3B817}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C609376A-8ACD-4651-B6B7-95F4630F671F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C609376A-8ACD-4651-B6B7-95F4630F671F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C609376A-8ACD-4651-B6B7-95F4630F671F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8231D850-4341-4EE5-8189-2FFE94C3B817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8231D850-4341-4EE5-8189-2FFE94C3B817}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8231D850-4341-4EE5-8189-2FFE94C3B817}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8231D850-4341-4EE5-8189-2FFE94C3B817}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
