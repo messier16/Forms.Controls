@@ -1,0 +1,88 @@
+﻿<UserControl
+    x:Class="Messier16.Forms.Uwp.Controls.Native.RatingBar.RatingBar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Messier16.Forms.Uwp.Controls.Native.Checkbox"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    <UserControl.Resources>
+        <Style TargetType="ToggleButton" x:Key="StarButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Grid x:Name="RootGrid">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Text"
+                                                                           Storyboard.TargetName="Star">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="&#xE224;" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Text"
+                                                                           Storyboard.TargetName="Star">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="&#xE0B4;" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Text"
+                                                                           Storyboard.TargetName="Star">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="&#xE0B4;" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled" />
+                                    <VisualState x:Name="Checked">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Text"
+                                                                           Storyboard.TargetName="Star">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="&#xE0B4;" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="CheckedPointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Text"
+                                                                           Storyboard.TargetName="Star">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="&#xE0B4;" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="CheckedPressed">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Text"
+                                                                           Storyboard.TargetName="Star">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="&#xE0B4;" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="CheckedDisabled" />
+                                    <VisualState x:Name="Indeterminate" />
+                                    <VisualState x:Name="IndeterminatePointerOver" />
+                                    <VisualState x:Name="IndeterminatePressed" />
+                                    <VisualState x:Name="IndeterminateDisabled" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <TextBlock x:Name="Star" FontSize="{TemplateBinding Height}" Padding="5"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       VerticalAlignment="Center" FontFamily="Segoe UI Symbol" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <StackPanel
+        Orientation="Horizontal"
+        PointerExited="StackPanel_PointerExited"
+        x:Name="StackRootPanel" />
+</UserControl>
