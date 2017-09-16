@@ -287,3 +287,5 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 Forms.Controls.Android/Resources/Resource.Designer.cs
+Sample/SampleLocalApp/SampleLocalApp.Android/Resources/Resource.Designer.cs
+Sample/SampleNuGetApp/SampleNuGetApp.Android/Resources/Resource.Designer.cs
