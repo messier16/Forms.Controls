@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Messier16.Forms.iOS.Controls.Native.RatingBar
+﻿namespace Messier16.Forms.iOS.Controls.Native.RatingBar
 {
     public enum StarRatingDisplayMode
     {

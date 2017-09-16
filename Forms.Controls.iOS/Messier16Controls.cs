@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Messier16.Forms.iOS.Controls
+﻿namespace Messier16.Forms.iOS.Controls
 {
     public static class Messier16Controls
     {
@@ -12,4 +10,3 @@ namespace Messier16.Forms.iOS.Controls
         }
     }
 }
-

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using CoreGraphics;
 using Foundation;
 using UIKit;
@@ -9,7 +7,13 @@ namespace Messier16.Forms.iOS.Controls.Native.RatingBar
 {
     public class EDStarRating : UIControl
     {
+        public delegate void RatingChangedEvent(object sender, GenericEventArgs<float> args);
+
         private const float EdDefaultHalfstarThreshold = 0.6f;
+        private StarRatingDisplayMode _displayMode;
+        private float _rating;
+        private UIImage _starHighlightedImage;
+        private UIImage _starImage;
 
         public UIImage TintedStarHighlightedImage { get; private set; }
 
@@ -19,29 +23,26 @@ namespace Messier16.Forms.iOS.Controls.Native.RatingBar
 
         public UIImage StarHighlightedImage
         {
-            get { return _starHighlightedImage; }
-            set { SetStarHighlightedImage(value); }
+            get => _starHighlightedImage;
+            set => SetStarHighlightedImage(value);
         }
 
         public UIImage StarImage
         {
-            get { return _starImage; }
-            set { SetStarImage(value); }
+            get => _starImage;
+            set => SetStarImage(value);
         }
 
         public int MaxRating { get; set; }
-        private float _rating;
         public nfloat HorizontalMargin { get; set; }
 
         public bool IsEditable { get; set; }
-        private StarRatingDisplayMode _displayMode;
-        private UIImage _starHighlightedImage;
-        private UIImage _starImage;
         public float HalfStarThreshold { get; set; }
 
 
         public event RatingChangedEvent RatingChanged;
         //@property(nonatomic, copy) EDStarRatingReturnBlock returnBlock;
+
         #region Init & dealloc
 
         public EDStarRating(NSCoder coder) : base(coder)
@@ -70,7 +71,7 @@ namespace Messier16.Forms.iOS.Controls.Native.RatingBar
 
         public float Rating
         {
-            get { return _rating; }
+            get => _rating;
             set
             {
                 _rating = value;
@@ -81,7 +82,7 @@ namespace Messier16.Forms.iOS.Controls.Native.RatingBar
 
         public StarRatingDisplayMode DisplayMode
         {
-            get { return _displayMode; }
+            get => _displayMode;
             set
             {
                 _displayMode = value;
@@ -93,23 +94,21 @@ namespace Messier16.Forms.iOS.Controls.Native.RatingBar
 
         #region Touch Interaction
 
-        float StarsForPoint(CGPoint point)
+        private float StarsForPoint(CGPoint point)
         {
             var stars = 0f;
-            for (int i = 0; i < MaxRating; i++)
+            for (var i = 0; i < MaxRating; i++)
             {
-                CGPoint p = PointOfStarAtPosition(i, false);
+                var p = PointOfStarAtPosition(i, false);
                 if (point.X > p.X)
                 {
-                    var increment = (float)1.0f;
+                    var increment = 1.0f;
 
                     if (DisplayMode == StarRatingDisplayMode.Half)
                     {
-                        float difference = (float)((point.X - p.X) / StarImage.Size.Width);
+                        var difference = (float) ((point.X - p.X) / StarImage.Size.Width);
                         if (difference < HalfStarThreshold)
-                        {
                             increment = 0.5f;
-                        }
                     }
                     stars += increment;
                 }
@@ -148,48 +147,44 @@ namespace Messier16.Forms.iOS.Controls.Native.RatingBar
 
         #region Drawing
 
-        CGPoint PointOfStarAtPosition(int position, bool highlighted)
+        private CGPoint PointOfStarAtPosition(int position, bool highlighted)
         {
             var size = highlighted ? StarHighlightedImage.Size : StarImage.Size;
 
             var starsSpace = Bounds.Size.Width - 2 * HorizontalMargin;
 
-            var interSpace = MaxRating - 1 > 0 ? (starsSpace - (MaxRating) * size.Width) / (MaxRating - 1) : 0;
+            var interSpace = MaxRating - 1 > 0 ? (starsSpace - MaxRating * size.Width) / (MaxRating - 1) : 0;
 
             if (interSpace < 0)
-            {
                 interSpace = 0;
-            }
 
-            nfloat x = HorizontalMargin + size.Width * position;
+            var x = HorizontalMargin + size.Width * position;
 
             if (position > 0)
-            {
                 x += interSpace * position;
-            }
 
-            nfloat y = (Bounds.Size.Height - size.Height) / ((nfloat)2.0);
+            var y = (Bounds.Size.Height - size.Height) / (nfloat) 2.0;
 
             return new CGPoint(x, y);
         }
 
-        void DrawBackgroundImage()
+        private void DrawBackgroundImage()
         {
             BackgroundImage?.Draw(Bounds);
         }
 
-        void DrawImage(UIImage image, int position)
+        private void DrawImage(UIImage image, int position)
         {
             var point = PointOfStarAtPosition(position, true);
             image?.Draw(point);
         }
 
-        CGColor CoreGraphicsColor(UIColor color)
+        private CGColor CoreGraphicsColor(UIColor color)
         {
             return color.CGColor;
         }
 
-        CGContext CurrentContext()
+        private CGContext CurrentContext()
         {
             return UIGraphics.GetCurrentContext();
         }
@@ -207,7 +202,7 @@ namespace Messier16.Forms.iOS.Controls.Native.RatingBar
 
             // Draw rating images
             var starSize = StarHighlightedImage.Size;
-            for (int i = 0; i < MaxRating; i++)
+            for (var i = 0; i < MaxRating; i++)
             {
                 DrawImage(TintedStarImage, i);
                 if (i < _rating) // Draws over the previous drawing
@@ -216,9 +211,8 @@ namespace Messier16.Forms.iOS.Controls.Native.RatingBar
                     {
                         if (i < _rating && _rating < i + 1)
                         {
-
                             var starPoint = PointOfStarAtPosition(i, false);
-                            float difference = _rating - i;
+                            var difference = _rating - i;
                             var rectClip = new CGRect
                             {
                                 X = starPoint.X,
@@ -226,7 +220,8 @@ namespace Messier16.Forms.iOS.Controls.Native.RatingBar
                                 Size = starSize
                             };
 
-                            if (DisplayMode == StarRatingDisplayMode.Half && difference < HalfStarThreshold)    // Draw half star image
+                            if (DisplayMode == StarRatingDisplayMode.Half && difference < HalfStarThreshold
+                            ) // Draw half star image
                             {
                                 var size = rectClip.Size;
                                 size.Width = size.Width / 2;
@@ -246,7 +241,6 @@ namespace Messier16.Forms.iOS.Controls.Native.RatingBar
                             }
                             if (rectClip.Size.Width > 0)
                                 ctx.ClipToRect(rectClip);
-
                         }
                         DrawImage(TintedStarHighlightedImage, i);
                     }
@@ -260,6 +254,7 @@ namespace Messier16.Forms.iOS.Controls.Native.RatingBar
         #endregion
 
         #region Tint color support
+
         public void SetStarImage(UIImage image)
         {
             if (Equals(StarImage, image))
@@ -276,9 +271,9 @@ namespace Messier16.Forms.iOS.Controls.Native.RatingBar
 
             _starHighlightedImage = image;
             TintedStarHighlightedImage = GetTintedImage(image);
-
         }
-        UIImage GetTintedImage(UIImage img)
+
+        private UIImage GetTintedImage(UIImage img)
         {
             //// Make sure tintColor is available (>= iOS 7.0 runtime)
             //if( [self respondsToSelector:@selector(tintColor)] && img.renderingMode == UIImageRenderingModeAlwaysTemplate )
@@ -286,7 +281,7 @@ namespace Messier16.Forms.iOS.Controls.Native.RatingBar
             UIGraphics.BeginImageContextWithOptions(img.Size, false, UIScreen.MainScreen.Scale);
             var context = UIGraphics.GetCurrentContext();
             context.TranslateCTM(0, img.Size.Height);
-            context.ScaleCTM((nfloat)1.0, (nfloat)(-1.0));
+            context.ScaleCTM((nfloat) 1.0, (nfloat) (-1.0));
             var rect = new CGRect(0, 0, img.Size.Width, img.Size.Height);
             // draw alpha-mask
             context.SetBlendMode(CGBlendMode.Normal);
@@ -308,9 +303,7 @@ namespace Messier16.Forms.iOS.Controls.Native.RatingBar
             TintedStarImage = GetTintedImage(StarImage);
             base.TintColorDidChange();
         }
+
         #endregion
-
-        public delegate void RatingChangedEvent(object sender, GenericEventArgs<float> args);
     }
-
 }

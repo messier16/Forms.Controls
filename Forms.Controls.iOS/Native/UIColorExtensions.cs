@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using UIKit;
 
 namespace Messier16.Forms.iOS.Controls.Native
@@ -24,11 +22,10 @@ namespace Messier16.Forms.iOS.Controls.Native
             self.GetRGBA(out r, out g, out b, out a);
 
             return new UIColor(
-              (float)Math.Min(r + percentage / 100, 1f),
-              (float)Math.Min(g + percentage / 100, 1f),
-              (float)Math.Min(b + percentage / 100, 1f),
+                (float) Math.Min(r + percentage / 100, 1f),
+                (float) Math.Min(g + percentage / 100, 1f),
+                (float) Math.Min(b + percentage / 100, 1f),
                 a);
         }
-
     }
 }
