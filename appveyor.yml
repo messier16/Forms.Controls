@@ -3,7 +3,7 @@ configuration: Release
 before_build:
   - nuget restore
 artifacts:
-  - path: Messier16.Forms.Controls.1.0.1-pre.nupkg
+  - path: Messier16.Forms.Controls.1.1.0.nupkg
     name: nuget_pack
 after_build:
   - nuget pack "Messier16.Forms.Controls.nuspec"
@@ -11,9 +11,9 @@ image: Visual Studio 2017
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
-  assembly_version: '1.0.1'
-  assembly_file_version: '1.0.1'
-  assembly_informational_version: '1.0.1'
+  assembly_version: '1.1.0'
+  assembly_file_version: '1.1.0'
+  assembly_informational_version: '1.1.0'
 build:
   project: Messier16.Forms.Controls.sln
   publish_nuget: true
