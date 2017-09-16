@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Messier16.Forms.Android.Controls</RootNamespace>
-    <AssemblyName>Forms.Controls.Android</AssemblyName>
+    <AssemblyName>Messier16.Forms.Android.Controls</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
