@@ -1,36 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
 using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Android.Util;
 using Android.Graphics;
+using Android.Util;
+using Android.Views;
 
 namespace Messier16.Forms.Android.Controls.Native.RatingBar
 {
-
     public class Messier16RatingBar : View
     {
+        private const float TouchScaleFactor = 180.0f / 320;
 
-        private int _maxStar = 5;
-        public int MaxStars
-        {
-            get { return _maxStar; }
-            set { _maxStar = value; }
-        }
+        private Color _fillColor;
 
-        private float _padding = 2;
-        public float Padding
-        {
-            get { return _padding; }
-            set { _padding = value; }
-        }
+        private Color _strokeColor;
+
+
+        private Paint _fillPaint;
+
+
+        private float _rating = -1;
+        private Paint _strokePaint;
 
         public Messier16RatingBar(Context context, IAttributeSet attrs) : base(context, attrs)
         {
@@ -42,48 +31,61 @@ namespace Messier16.Forms.Android.Controls.Native.RatingBar
             InitRatingBar();
         }
 
+        public int MaxStars { get; set; } = 5;
 
-        private Paint fillPaint;
-        private Paint strokePaint;
+        public float Padding { get; set; } = 2;
+
+        public Color FillColor
+        {
+            get => _fillColor;
+            set
+            {
+                _fillColor = value;
+                if (_fillPaint != null)
+                    _fillPaint.Color = value;
+                Invalidate();
+            }
+        }
+
+        public Color StrokeColor
+        {
+            get => _strokeColor;
+            set
+            {
+                _strokeColor = value;
+                if (_strokePaint != null)
+                    _strokePaint.Color = value;
+                Invalidate();
+            }
+        }
+
+        public float Rating
+        {
+            set
+            {
+                if (value != _rating)
+                {
+                    _rating = value;
+                    RatingChanged?.Invoke(this, _rating);
+                    Invalidate();
+                }
+            }
+            get => _rating;
+        }
 
 
         private void InitRatingBar()
         {
-            fillPaint = new Paint();
-            fillPaint.Color = new Color(0, 0, 0);
+            _fillPaint = new Paint {Color = new Color(0, 0, 0)};
 
-            strokePaint = new Paint();
-            strokePaint.StrokeWidth = 2;
-            strokePaint.AntiAlias = true;
-            strokePaint.Color = new Color(30, 30, 30);
-            strokePaint.SetStyle(Paint.Style.Stroke);
+            _strokePaint = new Paint
+            {
+                StrokeWidth = 2,
+                AntiAlias = true,
+                Color = new Color(30, 30, 30)
+            };
+            _strokePaint.SetStyle(Paint.Style.Stroke);
             SetPadding(3, 3, 3, 3);
-        }
-
-        public Color _fillColor;
-        public Color FillColor
-        {
-            get { return _fillColor; }
-            set
-            {
-                _fillColor = value;
-                if (fillPaint != null)
-                    fillPaint.Color = value;
-                Invalidate();
-            }
-        }
-
-        public Color _strokeColor;
-        public Color StrokeColor
-        {
-            get { return _strokeColor; }
-            set
-            {
-                _strokeColor = value;
-                if (strokePaint != null)
-                    strokePaint.Color = value;
-                Invalidate();
-            }
         }
 
         protected override void OnMeasure(int widthMeasureSpec, int heightMeasureSpec)
@@ -93,27 +95,23 @@ namespace Messier16.Forms.Android.Controls.Native.RatingBar
 
         private int MeasureWidth(int measureSpec)
         {
-            int result = 0;
+            var result = 0;
             var specMode = MeasureSpec.GetMode(measureSpec);
-            int specSize = MeasureSpec.GetSize(measureSpec);
+            var specSize = MeasureSpec.GetSize(measureSpec);
 
             if (specMode == MeasureSpecMode.Exactly)
-            {
                 result = specSize;
-            }
             return result;
         }
 
         private int MeasureHeight(int measureSpec)
         {
-            int result = 0;
+            var result = 0;
             var specMode = MeasureSpec.GetMode(measureSpec);
-            int specSize = MeasureSpec.GetSize(measureSpec);
+            var specSize = MeasureSpec.GetSize(measureSpec);
 
             if (specMode == MeasureSpecMode.Exactly)
-            {
                 result = specSize;
-            }
             return result;
         }
 
@@ -126,10 +124,10 @@ namespace Messier16.Forms.Android.Controls.Native.RatingBar
 
             var trueStarSize = Math.Min(starSizeHeight, starSizeWidth);
 
-            var starCenter = starSizeWidth / (float)2;
+            var starCenter = starSizeWidth / 2;
 
             var rating = Rating;
-            for (int i = 0; i < MaxStars; i++)
+            for (var i = 0; i < MaxStars; i++)
             {
                 var middle = starSizeWidth * i + starSizeWidth / 2;
                 var left = middle - trueStarSize / 2;
@@ -137,28 +135,23 @@ namespace Messier16.Forms.Android.Controls.Native.RatingBar
                 var boundingBox = new RectF(left + Padding, 0, left + trueStarSize - Padding, trueStarSize - Padding);
                 canvas.Save();
                 var starPath = StarPath(canvas, boundingBox);
-                canvas.DrawPath(starPath, strokePaint);
+                canvas.DrawPath(starPath, _strokePaint);
                 canvas.ClipPath(starPath);
 
                 RectF fillBox = null;
-                if ((i + 1) < Rating)
-                {
+                if (i + 1 < Rating)
                     fillBox = new RectF(left, 0, left + trueStarSize, trueStarSize);
-                }
                 else if (0 < Rating - i)
-                {
                     fillBox = new RectF(left, 0, left + trueStarSize * (Rating - i), trueStarSize);
-                }
                 if (fillBox != null)
-                    canvas.DrawRect(fillBox, fillPaint);
+                    canvas.DrawRect(fillBox, _fillPaint);
                 canvas.Restore();
             }
         }
 
-        Path StarPath(Canvas canvas, RectF frame)
+        private Path StarPath(Canvas canvas, RectF frame)
         {
-
-            Path bezierPath = new Path();
+            var bezierPath = new Path();
             bezierPath.MoveTo(frame.Left + frame.Width(), frame.Top + frame.Height() * 0.39964f);
             bezierPath.LineTo(frame.Left + frame.Width() * 0.65f, frame.Top + frame.Height() * 0.34969f);
             bezierPath.LineTo(frame.Left + frame.Width() * 0.5f, frame.Top);
@@ -174,11 +167,10 @@ namespace Messier16.Forms.Android.Controls.Native.RatingBar
             return bezierPath;
         }
 
-        private const float TOUCH_SCALE_FACTOR = 180.0f / 320;
         public override bool OnTouchEvent(MotionEvent e)
         {
-            float x = e.GetX();
-            float y = e.GetY();
+            var x = e.GetX();
+            var y = e.GetY();
             switch (e.Action)
             {
                 case MotionEventActions.Down:
@@ -195,28 +187,9 @@ namespace Messier16.Forms.Android.Controls.Native.RatingBar
 
         public event EventHandler<float> RatingChanged;
 
-
-        float rating = -1;
-        public float Rating
+        private void CalculateNewRating(float movement)
         {
-            set
-            {
-                if (value != rating)
-                {
-                    rating = value;
-                    RatingChanged?.Invoke(this, rating);
-                    Invalidate();
-                }
-            }
-            get
-            {
-                return rating;
-            }
-        }
-
-        void CalculateNewRating(float movement)
-        {
-            Rating = (float)Math.Ceiling(MaxStars * (movement / Width));
+            Rating = (float) Math.Ceiling(MaxStars * (movement / Width));
         }
     }
 }

@@ -1,39 +1,38 @@
 ﻿using System;
-using Xamarin.Forms.Platform.Android;
-using Android.Views;
-using Messier16.Forms.Controls;
-using Android.Widget;
-using Android.Graphics;
 using Android.Content;
-using Android.Util;
-using Xamarin.Forms;
+using Android.Views;
+using Android.Widget;
 using Messier16.Forms.Android.Controls;
 using Messier16.Forms.Android.Controls.Native.SegmentedControl;
-
+using Messier16.Forms.Controls;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.Android;
 
 [assembly: ExportRenderer(typeof(SegmentedControl), typeof(SegmentedControlRenderer))]
+
 namespace Messier16.Forms.Android.Controls
 {
     public class SegmentedControlRenderer : ViewRenderer<SegmentedControl, RadioGroup>
     {
         /// <summary>
-        /// Used for registration with dependency service
+        ///     Used for registration with dependency service
         /// </summary>
         public static void Init()
         {
-            var temp = DateTime.Now;
+            var unused = DateTime.Now;
         }
 
         protected override void OnElementChanged(ElementChangedEventArgs<SegmentedControl> e)
         {
             base.OnElementChanged(e);
 
-            var layoutInflater = (LayoutInflater)Context.GetSystemService(Context.LayoutInflaterService);
+            var layoutInflater = (LayoutInflater) Context.GetSystemService(Context.LayoutInflaterService);
 
             var g = new RadioGroup(Context);
             g.Orientation = Orientation.Horizontal;
-            g.CheckedChange += (sender, eventArgs) => {
-                var rg = (RadioGroup)sender;
+            g.CheckedChange += (sender, eventArgs) =>
+            {
+                var rg = (RadioGroup) sender;
                 if (rg.CheckedRadioButtonId != -1)
                 {
                     var id = rg.CheckedRadioButtonId;
@@ -48,7 +47,7 @@ namespace Messier16.Forms.Android.Controls
             for (var i = 0; i < e.NewElement.Children.Count; i++)
             {
                 var o = e.NewElement.Children[i];
-                var v = (SegmentedControlButton)layoutInflater.Inflate(Resource.Layout.SegmentedControl, null);
+                var v = (SegmentedControlButton) layoutInflater.Inflate(Resource.Layout.SegmentedControl, null);
                 v.Text = o.Text;
                 if (i == 0)
                     v.SetBackgroundResource(Resource.Drawable.segmented_control_first_background);
@@ -61,4 +60,3 @@ namespace Messier16.Forms.Android.Controls
         }
     }
 }
-

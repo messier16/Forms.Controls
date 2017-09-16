@@ -1,33 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using Messier16.Forms.Android.Controls;
+using Messier16.Forms.Android.Controls.Native.RatingBar;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
-
 using RatingBar = Messier16.Forms.Controls.RatingBar;
-using Messier16.Forms.Android.Controls.Native.RatingBar;
 
 [assembly: ExportRenderer(typeof(RatingBar), typeof(RatingBarRenderer))]
+
 namespace Messier16.Forms.Android.Controls
 {
     public class RatingBarRenderer : ViewRenderer<RatingBar, Messier16RatingBar>
     {
         /// <summary>
-        /// Used for registration with dependency service
+        ///     Used for registration with dependency service
         /// </summary>
         public static void Init()
         {
-            var temp = DateTime.Now;
+            var unused = DateTime.Now;
         }
 
 
@@ -64,18 +55,14 @@ namespace Messier16.Forms.Android.Controls
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName.Equals(nameof(Element.Rating)))
-            {
                 Control.Rating = Element.Rating;
-            }
             else
-            {
                 base.OnElementPropertyChanged(sender, e);
-            }
         }
 
         private void RatingBarOnRatingChanged(object sender, float f)
         {
-            Element.Rating = (int)f;
+            Element.Rating = (int) f;
         }
     }
 }

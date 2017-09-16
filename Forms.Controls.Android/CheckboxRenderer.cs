@@ -8,39 +8,43 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
 [assembly: ExportRenderer(typeof(Checkbox), typeof(CheckboxRenderer))]
+
 namespace Messier16.Forms.Android.Controls
 {
     public class CheckboxRenderer : ViewRenderer<Checkbox, AppCompatCheckBox>, CompoundButton.IOnCheckedChangeListener
     {
+        public void OnCheckedChanged(CompoundButton buttonView, bool isChecked)
+        {
+            ((IViewController) Element).SetValueFromRenderer(Checkbox.CheckedProperty, isChecked);
+        }
+
         /// <summary>
-        /// Used for registration with dependency service
+        ///     Used for registration with dependency service
         /// </summary>
         public static void Init()
         {
-            var temp = DateTime.Now;
-        }
-
-        public void OnCheckedChanged(CompoundButton buttonView, bool isChecked)
-        {
-            ((IViewController)Element).SetValueFromRenderer(Checkbox.CheckedProperty, isChecked);
+            var unused = DateTime.Now;
         }
 
         public override SizeRequest GetDesiredSize(int widthConstraint, int heightConstraint)
         {
-            SizeRequest sizeConstraint = base.GetDesiredSize(widthConstraint, heightConstraint);
+            var sizeConstraint = base.GetDesiredSize(widthConstraint, heightConstraint);
 
             if (sizeConstraint.Request.Width == 0)
             {
-                int width = widthConstraint;
+                var width = widthConstraint;
                 if (widthConstraint <= 0)
                 {
                     System.Diagnostics.Debug.WriteLine("Default values");
                     width = 100;
                 }
                 else if (widthConstraint <= 0)
+                {
                     width = 100;
+                }
 
-                sizeConstraint = new SizeRequest(new Size(width, sizeConstraint.Request.Height), new Size(width, sizeConstraint.Minimum.Height));
+                sizeConstraint = new SizeRequest(new Size(width, sizeConstraint.Request.Height),
+                    new Size(width, sizeConstraint.Minimum.Height));
             }
 
             return sizeConstraint;
@@ -90,17 +94,22 @@ namespace Messier16.Forms.Android.Controls
             }
         }
 
-        private ColorStateList GetBackgroundColorStateList(Color color) => new ColorStateList(
-                        new[] {
-                                new int[] { -global::Android.Resource.Attribute.StateEnabled },  // checked
-                                new int[] { -global::Android.Resource.Attribute.StateChecked }, // unchecked
-                                new int[] { global::Android.Resource.Attribute.StateChecked }  // checked
-                        },
-                        new int[] {
-                                color.WithSaturation(0.1).ToAndroid(),
-                                color.ToAndroid(),
-                                color.ToAndroid()
-                        });
+        private ColorStateList GetBackgroundColorStateList(Color color)
+        {
+            return new ColorStateList(
+                new[]
+                {
+                    new[] {-global::Android.Resource.Attribute.StateEnabled}, // checked
+                    new[] {-global::Android.Resource.Attribute.StateChecked}, // unchecked
+                    new[] {global::Android.Resource.Attribute.StateChecked} // checked
+                },
+                new int[]
+                {
+                    color.WithSaturation(0.1).ToAndroid(),
+                    color.ToAndroid(),
+                    color.ToAndroid()
+                });
+        }
 
         private void OnElementCheckedChanged(object sender, CheckedChangedEventArgs e)
         {
