@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Messier16.Forms.Controls</id>
+    <version>1.0.0-pre</version>
+    <title>Messier16 controls for Xamarin.Forms</title>
+    <authors>Antonio Feregrino</authors>
+    <owners>Messier16</owners>
+    <projectUrl>https://github.com/Messier16/Forms.Controls</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/messier16/Forms.Controls/master/m16.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Want to use checkboxes or rating bars in your Xamarin.Forms app? Messier16 controls for Xamarin.Forms. built against Xamarin.Forms 2.3.3.180</description>
+    <releaseNotes>Now you can access the rating property in Android</releaseNotes>
+    <copyright>Antonio Feregrino, 2017</copyright>
+    <tags>Xamarin.Forms, Xamarin, Checkbox, RatingBar</tags>
+    <dependencies>
+      <dependency id="Xamarin.Forms" version="2.3.4.270" />
+    </dependencies>
+  </metadata>  
+  <files>
+    <!--Core-->
+    <file src="Controls\bin\Release\Messier16.Forms.Controls.dll" target="lib\portable-net45+wp8+win8+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Messier16.Forms.Controls.dll" />    
+    <file src="Controls\bin\Release\Messier16.Forms.Controls.pdb" target="lib\portable-net45+wp8+win8+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Messier16.Forms.Controls.pdb" />
+
+    <!--Xamarin.iOS-->
+    <file src="iOS.Controls\bin\Release\Messier16.Forms.iOS.Controls.dll" target="lib\MonoTouch10\Messier16.Forms.iOS.Controls.dll" />
+    <file src="Controls\bin\Release\Messier16.Forms.Controls.dll" target="lib\MonoTouch10\Messier16.Forms.Controls.dll" />
+
+    <!--Xamarin.iOSUnified-->	 
+    <file src="iOS.Controls\bin\Release\Messier16.Forms.iOS.Controls.dll" target="lib\Xamarin.iOS10\Messier16.Forms.iOS.Controls.dll" />
+    <file src="Controls\bin\Release\Messier16.Forms.Controls.dll" target="lib\Xamarin.iOS10\Messier16.Forms.Controls.dll" />
+    
+    <!-- Android-->
+    <file src="Android.Controls\bin\Release\Messier16.Forms.Android.Controls.dll" target="lib\MonoAndroid10\Messier16.Forms.Android.Controls.dll" />
+    <file src="Controls\bin\Release\Messier16.Forms.Controls.dll" target="lib\MonoAndroid10\Messier16.Forms.Controls.dll" />
+    
+    <!-- UWP -->
+	<!--
+    <file src="Uwp.Controls\bin\Release\Messier16.Forms.Uwp.Controls.dll" target="lib\UAP10\Messier16.Forms.Uwp.Controls.dll" />
+    <file src="Controls\bin\Release\Messier16.Forms.Controls.dll" target="lib\UAP10\Messier16.Forms.Controls.dll" />
+	-->
+  </files>
+</package>
