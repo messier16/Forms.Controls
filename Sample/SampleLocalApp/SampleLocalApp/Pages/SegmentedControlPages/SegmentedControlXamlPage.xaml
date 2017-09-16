@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:messier16="clr-namespace:Messier16.Forms.Controls;assembly=Messier16.Forms.Controls"
+             x:Class="TestApp.Pages.SegmentedControlPages.SegmentedControlXamlPage">
+
+    <Grid ColumnSpacing="0" RowSpacing="0">
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="Auto" />
+    		<RowDefinition Height="Auto" />
+    		<RowDefinition Height="Auto" />
+    		<RowDefinition Height="Auto" />
+    	</Grid.RowDefinitions>
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition />
+    		<ColumnDefinition />
+    		<ColumnDefinition />
+    	</Grid.ColumnDefinitions>
+
+      <messier16:SegmentedControl 
+      	Margin="10"
+      	Grid.ColumnSpan="3">
+        <messier16:SegmentedControl.Children>
+          <messier16:SegmentedControlOption Text="Valor 1" />
+          <messier16:SegmentedControlOption Text="Valor 2" />
+          <messier16:SegmentedControlOption Text="Valor 3" />
+        </messier16:SegmentedControl.Children>
+      </messier16:SegmentedControl>
+
+      <messier16:SegmentedControl x:Name="sportChoose" 
+      	Margin="10"
+      	Grid.Row="1" 
+      	Grid.ColumnSpan="2">
+        <messier16:SegmentedControl.Children>
+          <messier16:SegmentedControlOption Text="Futbol" />
+          <messier16:SegmentedControlOption Text="Soccer" />
+        </messier16:SegmentedControl.Children>
+      </messier16:SegmentedControl>
+
+      <Label x:Name="sportLabel" 
+      	VerticalTextAlignment="Center"
+      	HorizontalTextAlignment="Center"
+      	Grid.Row="1"
+      	Grid.Column="2" />
+
+      	<Picker x:Name="picker"
+	      	Grid.Row="2"
+	      	SelectedIndex="{Binding SelectedIx, Mode=OneWayToSource}"
+	      	Grid.ColumnSpan="3" />
+
+      <messier16:SegmentedControl x:Name="DisabledSegmentedControl" 
+      	Margin="10"
+      	Grid.Row="3"
+      	SelectedIndex="{Binding SelectedIx, Mode=TwoWay}"
+      	Grid.ColumnSpan="3">
+      </messier16:SegmentedControl>
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.4</TargetFramework>
+    <PackageTargetFallback>$(PackageTargetFallback);portable-win+net45+wp8+win81+wpa8</PackageTargetFallback>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Messier16.Forms.Controls" Version="1.0.1-pre" />
+    <PackageReference Include="Xamarin.Forms" Version="2.3.4.270" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- https://bugzilla.xamarin.com/show_bug.cgi?id=55591 -->
+    <None Remove="**\*.xaml" />
+    <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
+    <EmbeddedResource Include="**\*.xaml" SubType="Designer" Generator="MSBuild:UpdateDesignTimeXaml" />
+  </ItemGroup>
+  
+</Project>

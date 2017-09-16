@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:messier16="clr-namespace:Messier16.Forms.Controls;assembly=Messier16.Forms.Controls"
+             x:Class="TestApp.Pages.RatingBarPages.RatingBarXamlPage">
+
+    <StackLayout VerticalOptions="Center">
+        <messier16:RatingBar FilledImage="star_filled.png" Image="star.png" MaxRating="10" FillColor="Navy" HeightRequest="50" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <messier16:RatingBar Rating="{Binding Rating, Mode=TwoWay}" FillColor="Maroon" FilledImage="star_filled.png" Image="star.png" MaxRating="5" HeightRequest="50" />
+            <Label Text="{Binding Rating}" Grid.Column="1" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"></Label>
+
+            <messier16:RatingBar Rating="{Binding BeerRating, Mode=TwoWay}" FillColor="Green" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" FilledImage="beer_filled.png" Image="beer.png" MaxRating="5" HeightRequest="50" />
+            <Label Text="{Binding BeerRating, StringFormat='{0} beer'}" Grid.Column="0" Grid.ColumnSpan="2"  Grid.Row="2" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"></Label>
+        </Grid>
+    </StackLayout>
+</ContentPage>

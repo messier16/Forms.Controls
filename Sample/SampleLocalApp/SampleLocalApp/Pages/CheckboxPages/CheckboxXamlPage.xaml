@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:messier16="clr-namespace:Messier16.Forms.Controls;assembly=Messier16.Forms.Controls"
+	xmlns:converters="clr-namespace:TestApp.Converters"
+	x:Class="TestApp.Pages.CheckboxPages.CheckboxXamlPage">
+
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<converters:NegateBooleanConverter x:Key="NegateConverter"></converters:NegateBooleanConverter>
+			<converters:BoolToCheckedTextConverter x:Key="BoolToTextConverter"></converters:BoolToCheckedTextConverter>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<StackLayout>
+		<StackLayout VerticalOptions="Center" Orientation="Horizontal">
+			<messier16:Checkbox Checked="{Binding Check1, Mode=TwoWay}" WidthRequest="55"></messier16:Checkbox>
+			<messier16:Checkbox IsEnabled="{Binding Check1}" Checked="{Binding Check2, Mode=TwoWay}" WidthRequest="45"></messier16:Checkbox>
+			<messier16:Checkbox WidthRequest="35" Checked="{Binding Check1, Mode=OneWay, Converter={StaticResource NegateConverter}}"></messier16:Checkbox>
+			<messier16:Checkbox IsVisible="{Binding Check2}"></messier16:Checkbox>
+		</StackLayout>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*"></ColumnDefinition>
+				<ColumnDefinition Width="4*"></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+
+
+			<messier16:Checkbox Checked="{Binding ToggleCheck}" WidthRequest="45"></messier16:Checkbox>
+			<Button Grid.Column="1" Command="{Binding ToggleCheckCommand}" Text="Toggle check"></Button>
+
+			<messier16:Checkbox Checked="{Binding OtherCheck}" Grid.Row="1" WidthRequest="55"></messier16:Checkbox>
+			<Label Text="{Binding OtherCheck, Mode=OneWay, Converter={StaticResource BoolToTextConverter}}" VerticalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="1"></Label>
+		</Grid>
+
+
+	</StackLayout>
+</ContentPage>
