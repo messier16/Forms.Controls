@@ -1,9 +1,9 @@
 ﻿{
   "dependencies": {
     "Messier16.Forms.Controls": "1.0.1-pre",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0",
     "PlatformTabbedPage": "1.0.1-pre",
-    "Xamarin.Forms": "2.3.4.270"
+    "Xamarin.Forms": "2.5.0.91635"
   },
   "frameworks": {
     "uap10.0.10586": {}

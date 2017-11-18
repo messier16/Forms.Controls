@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Messier16.Forms.Controls</id>
-    <version>1.1.0</version>
+    <version>2.0.0-beta</version>
     <title>Messier16 controls for Xamarin.Forms</title>
     <authors>Antonio Feregrino</authors>
     <owners>Messier16</owners>
@@ -14,7 +14,7 @@
     <copyright>Antonio Feregrino, 2017</copyright>
     <tags>Xamarin.Forms, Xamarin, Checkbox, RatingBar</tags>
     <dependencies>
-      <dependency id="Xamarin.Forms" version="2.3.4.270" />
+      <dependency id="Xamarin.Forms" version="2.5.0.91635" />
     </dependencies>
   </metadata>  
   <files>

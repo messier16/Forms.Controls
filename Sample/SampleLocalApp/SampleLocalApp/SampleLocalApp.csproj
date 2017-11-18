@@ -7,14 +7,7 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="2.3.4.270" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <!-- https://bugzilla.xamarin.com/show_bug.cgi?id=55591 -->
-    <None Remove="**\*.xaml" />
-    <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
-    <EmbeddedResource Include="**\*.xaml" SubType="Designer" Generator="MSBuild:UpdateDesignTimeXaml" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.91635" />
   </ItemGroup>
 
   <ItemGroup>
