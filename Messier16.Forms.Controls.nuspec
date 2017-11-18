@@ -14,7 +14,7 @@
     <copyright>Antonio Feregrino, 2017</copyright>
     <tags>Xamarin.Forms, Xamarin, Checkbox, RatingBar</tags>
     <dependencies>
-      <dependency id="Xamarin.Forms" version="2.5.0.91635" />
+      <dependency id="Xamarin.Forms" version="2.4.0.91020" />
     </dependencies>
   </metadata>  
   <files>
