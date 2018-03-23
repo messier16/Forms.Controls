@@ -1,4 +1,5 @@
 ﻿using System;
+using Android.Content;
 using Android.Content.Res;
 using Android.Support.V7.Widget;
 using Android.Widget;
@@ -13,6 +14,11 @@ namespace Messier16.Forms.Android.Controls
 {
     public class CheckboxRenderer : ViewRenderer<Checkbox, AppCompatCheckBox>, CompoundButton.IOnCheckedChangeListener
     {
+        public CheckboxRenderer(Context context) : base(context)
+        {
+
+        }
+
         public void OnCheckedChanged(CompoundButton buttonView, bool isChecked)
         {
             ((IViewController) Element).SetValueFromRenderer(Checkbox.CheckedProperty, isChecked);

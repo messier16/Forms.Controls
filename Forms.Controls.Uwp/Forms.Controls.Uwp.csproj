@@ -4,15 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{85C79395-1BB9-44EB-BA59-D64474E5C366}</ProjectGuid>
+    <ProjectGuid>{C0DD1DB6-F847-4756-92C3-3BDE2D633CE3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Messier16.Forms.Uwp.Controls</RootNamespace>
     <AssemblyName>Messier16.Forms.Uwp.Controls</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.15063.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16299.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -114,19 +114,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RatingBarRenderer.cs" />
     <Compile Include="SegmentedControlRenderer.cs" />
-    <EmbeddedResource Include="Properties\Forms.Uwp.Controls.rd.xml" />
+    <EmbeddedResource Include="Properties\Forms.Controls.Uwp.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>5.4.0</Version>
+      <Version>6.0.6</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>2.5.0.91635</Version>
+      <Version>2.5.0.280555</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Forms.Controls\Forms.Controls.csproj">
-      <Project>{c609376a-8acd-4651-b6b7-95f4630f671f}</Project>
+      <Project>{0e345c69-85e9-4ef3-bbec-ef7278120451}</Project>
       <Name>Forms.Controls</Name>
     </ProjectReference>
   </ItemGroup>

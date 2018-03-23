@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Android.Content;
 using Android.Widget;
 using Messier16.Forms.Android.Controls;
 using Messier16.Forms.Controls;
@@ -12,6 +13,11 @@ namespace Messier16.Forms.Android.Controls
 {
     public class SegmentedControlRenderer : ViewRenderer<SegmentedControl, Spinner>
     {
+        public SegmentedControlRenderer(Context context)  : base(context)
+        {
+
+        }
+
         /// <summary>
         ///     Used for registration with dependency service
         /// </summary>

@@ -1,17 +1,17 @@
-﻿using Foundation;
-using Messier16.Forms.Controls.iOS;
-using UIKit;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.iOS;
-using TestApp;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace SampleLocalApp.iOS
+using Foundation;
+using UIKit;
+
+namespace SampleNuGetApp.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
     // User Interface of the application, as well as listening (and optionally responding) to 
     // application events from iOS.
     [Register("AppDelegate")]
-    public class AppDelegate : FormsApplicationDelegate
+    public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
         //
         // This method is invoked when the application has loaded and is ready to run. In this 
@@ -22,9 +22,9 @@ namespace SampleLocalApp.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            Forms.Init();
+            global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
-            PlatformTabbedPageRenderer.Init();
+
             return base.FinishedLaunching(app, options);
         }
     }

@@ -1,15 +1,17 @@
-﻿using Android.App;
+﻿using System;
+
+using Android.App;
 using Android.Content.PM;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
 using Android.OS;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
 using TestApp;
 
 namespace SampleLocalApp.Droid
 {
-    [Activity(Label = "SampleLocalApp", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true,
-        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : FormsAppCompatActivity
+    [Activity(Label = "SampleLocalApp", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -18,9 +20,10 @@ namespace SampleLocalApp.Droid
 
             base.OnCreate(bundle);
 
-            Forms.Init(this, bundle);
+            global::Xamarin.Forms.Forms.Init(this, bundle);
             Messier16.Forms.Android.Controls.Messier16Controls.InitAll();
             LoadApplication(new App());
         }
     }
 }
+

@@ -1,16 +1,16 @@
-﻿using Android.App;
-using Android.Content.PM;
-using Android.OS;
-using Messier16.Forms.Controls.Droid;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
-using TestApp;
+﻿using System;
 
-namespace SampleLocalApp.Droid
+using Android.App;
+using Android.Content.PM;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using Android.OS;
+
+namespace SampleNuGetApp.Droid
 {
-    [Activity(Label = "SampleLocalApp", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true,
-        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : FormsAppCompatActivity
+    [Activity(Label = "SampleNuGetApp", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -19,9 +19,9 @@ namespace SampleLocalApp.Droid
 
             base.OnCreate(bundle);
 
-            Forms.Init(this, bundle);
-            PlatformTabbedPageRenderer.Init();
+            global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
         }
     }
 }
+
