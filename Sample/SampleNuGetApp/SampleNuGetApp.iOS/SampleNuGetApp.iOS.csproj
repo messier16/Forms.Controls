@@ -120,11 +120,14 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.280555" />
+    <PackageReference Include="Messier16.Forms.Controls">
+      <Version>2.1.0-beta</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\SampleNuGetApp\SampleNuGetApp.csproj">
-      <Project>{C451D758-747B-479D-A9B3-8830AA51FE0B}</Project>
+      <Project>{349F193A-0F5E-4FFC-BF62-2E3B1944FCA1}</Project>
       <Name>SampleNuGetApp</Name>
     </ProjectReference>
   </ItemGroup>
