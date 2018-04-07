@@ -123,10 +123,13 @@
       <Version>2.1.0-beta</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.280555" />
+    <PackageReference Include="Messier16.Forms.Controls">
+      <Version>2.1.0-beta</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SampleNuGetApp\SampleNuGetApp.csproj">
-      <Project>{349f193a-0f5e-4ffc-bf62-2e3b1944fca1}</Project>
+      <Project>{349F193A-0F5E-4FFC-BF62-2E3B1944FCA1}</Project>
       <Name>SampleNuGetApp</Name>
     </ProjectReference>
   </ItemGroup>
