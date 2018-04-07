@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>SampleNuGetApp.Droid</RootNamespace>
     <AssemblyName>SampleNuGetApp.Android</AssemblyName>
-    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
@@ -87,12 +87,6 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SampleNuGetApp\SampleNuGetApp.csproj">
-      <Project>{349F193A-0F5E-4FFC-BF62-2E3B1944FCA1}</Project>
-      <Name>SampleNuGetApp</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +154,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SampleNuGetApp\SampleNuGetApp.csproj">
+      <Project>{349f193a-0f5e-4ffc-bf62-2e3b1944fca1}</Project>
+      <Name>SampleNuGetApp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
