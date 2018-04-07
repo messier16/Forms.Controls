@@ -23,7 +23,8 @@ namespace SampleNuGetApp.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+            Messier16.Forms.iOS.Controls.Messier16Controls.InitAll();
+            LoadApplication(new TestApp.App());
 
             return base.FinishedLaunching(app, options);
         }

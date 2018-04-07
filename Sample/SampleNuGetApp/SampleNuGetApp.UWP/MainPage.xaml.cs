@@ -21,7 +21,8 @@ namespace SampleNuGetApp.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new SampleNuGetApp.App());
+            Messier16.Forms.Uwp.Controls.Messier16Controls.InitAll();
+            LoadApplication(new TestApp.App());
         }
     }
 }

@@ -148,12 +148,15 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Messier16.Forms.Controls">
+      <Version>2.1.0-beta</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.280555" />
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SampleNuGetApp\SampleNuGetApp.csproj">
-      <Project>{C451D758-747B-479D-A9B3-8830AA51FE0B}</Project>
+      <Project>{349f193a-0f5e-4ffc-bf62-2e3b1944fca1}</Project>
       <Name>SampleNuGetApp</Name>
     </ProjectReference>
   </ItemGroup>

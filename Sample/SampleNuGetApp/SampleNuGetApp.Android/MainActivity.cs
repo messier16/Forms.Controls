@@ -20,7 +20,8 @@ namespace SampleNuGetApp.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());
+            Messier16.Forms.Android.Controls.Messier16Controls.InitAll();
+            LoadApplication(new TestApp.App());
         }
     }
 }

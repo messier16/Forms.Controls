@@ -35,7 +35,7 @@
     <file src="Forms.Controls\bin\Release\netstandard2.0\Messier16.Forms.Controls.dll" target="lib\MonoAndroid10\Messier16.Forms.Controls.dll" />
     
     <!-- UWP -->
-    <file src="Forms.Uwp.Controls\bin\Release\Messier16.Forms.Uwp.Controls.dll" target="lib\UAP10\Messier16.Forms.Uwp.Controls.dll" />
+    <file src="Forms.Controls.Uwp\bin\Release\Messier16.Forms.Uwp.Controls.dll" target="lib\UAP10\Messier16.Forms.Uwp.Controls.dll" />
     <file src="Forms.Controls\bin\Release\netstandard2.0\Messier16.Forms.Controls.dll" target="lib\UAP10\Messier16.Forms.Controls.dll" />
 	
   </files>
