@@ -52,6 +52,7 @@ namespace SampleLocalApp.UWP
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
+                Messier16.Forms.Uwp.Controls.Messier16Controls.InitAll();
                 Xamarin.Forms.Forms.Init(e);
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)

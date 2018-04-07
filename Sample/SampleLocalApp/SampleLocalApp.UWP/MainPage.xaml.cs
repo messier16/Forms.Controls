@@ -21,7 +21,6 @@ namespace SampleLocalApp.UWP
         {
             this.InitializeComponent();
 
-            Messier16.Forms.Uwp.Controls.Messier16Controls.InitAll();
             LoadApplication(new TestApp.App());
         }
     }

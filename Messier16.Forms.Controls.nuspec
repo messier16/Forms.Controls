@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Messier16.Forms.Controls</id>
-    <version>2.1.0-beta</version>
+    <version>2.2.0</version>
     <title>Messier16 controls for Xamarin.Forms</title>
     <authors>Antonio Feregrino</authors>
     <owners>Messier16</owners>
@@ -10,8 +10,8 @@
     <iconUrl>https://raw.githubusercontent.com/messier16/Forms.Controls/master/m16.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Want to use checkboxes or rating bars in your Xamarin.Forms app? Messier16 controls for Xamarin.Forms. built against Xamarin.Forms 2.3.3.180</description>
-    <releaseNotes>Now you can access the rating property in Android</releaseNotes>
-    <copyright>Antonio Feregrino, 2017</copyright>
+    <releaseNotes>.NET standard compatible. Support for UWP platforms in this version is very flaky and I'd suggest sticking to the old library version if UWP is on your intended deployment platforms.</releaseNotes>
+    <copyright>Antonio Feregrino, 2018</copyright>
     <tags>Xamarin.Forms, Xamarin, Checkbox, RatingBar</tags>
     <dependencies>
       <dependency id="Xamarin.Forms" version="2.5.0.280555" />
