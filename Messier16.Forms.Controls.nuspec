@@ -7,7 +7,7 @@
     <authors>Antonio Feregrino</authors>
     <owners>Messier16</owners>
     <projectUrl>https://github.com/Messier16/Forms.Controls</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/messier16/Forms.Controls/master/m16.png</iconUrl>
+    <iconUrl>https://i.imgur.com/xuPIn3J.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Want to use checkboxes or rating bars in your Xamarin.Forms app? Messier16 controls for Xamarin.Forms. built against Xamarin.Forms 2.3.3.180</description>
     <releaseNotes>.NET standard compatible. Support for UWP platforms in this version is very flaky and I'd suggest sticking to the old library version if UWP is on your intended deployment platforms.</releaseNotes>
