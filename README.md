@@ -4,6 +4,8 @@ Home of all Messier16 Xamarin.Forms controls 😁 (now .NET standarized<sup>1</s
 
 Be aware that some functionality might have changed from the previous versions to the 2.X.X (the NET Standard one), if you find any errors (or something that used to work on your previous version but it doesn't anymore), please, submit an [issue](https://github.com/messier16/Forms.Controls/issues/new).
 
+See more Xamarin related posts here: [https://thatcsharpguy.com](https://thatcsharpguy.com/tag/Xamarin/)
+
 ## Installing this thing
 
 Get it on NuGet: [Messier16.Forms.Controls](https://www.nuget.org/packages/Messier16.Forms.Controls)
